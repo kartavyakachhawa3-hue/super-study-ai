@@ -70,7 +70,7 @@ if uploaded_file:
     st.image(img, caption='आपकी किताब', width=300)
     
     with st.spinner('मास्टर जी पढ़ रहे हैं...'):
-        text = pytesseract.image_to_string(lang='hin+eng')
+        text = pytesseract.image_to_string(img, lang='hin+eng')
         if text.strip():
             asyncio.run(generate_voice(text))
             st.audio("voice.mp3", format="audio/mp3")
